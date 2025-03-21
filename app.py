@@ -12,10 +12,9 @@ CORS(app)  # Enable CORS for all routes
 # Email configuration
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
-EMAIL_HOST_USER = "medixir.ai@gmail.com"
-# Use an App Password here instead of your regular password
-EMAIL_HOST_PASSWORD = "ngvz loba obfg kdav"  # Replace with your App Password
-RECIPIENT_EMAIL = "medixir.ai@gmail.com"
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER", "medixir.ai@gmail.com")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "ngvz loba obfg kdav")
+RECIPIENT_EMAIL = os.environ.get("RECIPIENT_EMAIL", "medixir.ai@gmail.com")
 
 # Route to serve the main index.html file
 @app.route('/')
